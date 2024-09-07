@@ -1,5 +1,6 @@
 const storeManager = require("../models/storeManager");
 const bcrypt = require("bcrypt");
+const { generateToken } = require("../utils/jwtUtils");
 
 exports.login = async (req, res) => {
   try {
@@ -20,6 +21,9 @@ exports.login = async (req, res) => {
     if (!isPasswordCorrect) {
       return res.status(401).json({ message: "Invalid username or password" });
     }
+
+    const token = generateToken(validStoreManager);
+    // console.log(token,'the token');
     res.status(200).json({ message: "Login successful" });
   } catch (error) {}
 };

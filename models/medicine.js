@@ -7,6 +7,8 @@ const medicineSchema = new Schema({
   price: { type: Number, required: true },
   stock: { type: Number, required: true },
   discount: { type: Number, default: 0 },
+  deleted: { type: Boolean, default: false },
+
 });
 
 module.exports = mongoose.model('Medicine', medicineSchema);

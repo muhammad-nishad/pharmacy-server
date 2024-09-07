@@ -10,7 +10,8 @@ const connectDB = require("./config/db");
 
 const app = express();
 
-const routes = require("./routes");
+const routes = require("./routes/authRoutes");
+const salesExecutiveRoutes=require('./routes/salesExecutiveRoutes')
 
 app.use(cors());
 
@@ -22,6 +23,9 @@ connectDB();
 
 //  routes
 app.use("/api", routes);
+
+app.use('/api/sales-executives', salesExecutiveRoutes);
+
 
 const PORT = process.env.PORT || 5000;
 
