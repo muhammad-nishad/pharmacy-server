@@ -23,8 +23,8 @@ exports.login = async (req, res) => {
     }
 
     const token = generateToken(validStoreManager);
-    // console.log(token,'the token');
-    res.status(200).json({ message: "Login successful" });
+    res.status(200).json({ message: "Login successful",role: "storeManager",
+    });
   } catch (error) {}
 };
 

@@ -12,6 +12,7 @@ const app = express();
 
 const routes = require("./routes/authRoutes");
 const salesExecutiveRoutes=require('./routes/salesExecutiveRoutes')
+const medicineRoutes=require('./routes/medicineRoutes')
 
 app.use(cors());
 
@@ -23,6 +24,9 @@ connectDB();
 
 //  routes
 app.use("/api", routes);
+
+app.use("/api/medicine", medicineRoutes);
+
 
 app.use('/api/sales-executives', salesExecutiveRoutes);
 

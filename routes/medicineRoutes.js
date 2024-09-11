@@ -3,7 +3,7 @@ const router = express.Router();
 const medicineController = require("../controllers/medicineController");
 
 // Routes
-router.post("/", medicineController.createMedicine);
+router.post("/add", medicineController.createMedicine);
 
 router.get("/", medicineController.getMedicines);
 

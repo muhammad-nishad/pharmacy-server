@@ -1,6 +1,7 @@
 const Medicine = require("../models/medicine");
 
 exports.createMedicine = async (req, res) => {
+  
   try {
     const { name, manufacturer, price, stock, discount } = req.body;
     const newMedicine = new Medicine({
@@ -15,6 +16,8 @@ exports.createMedicine = async (req, res) => {
       .status(201)
       .json({ message: "Medicine created successfully", newMedicine });
   } catch (error) {
+    console.log(error,'the eorr');
+    
     res
       .status(500)
       .json({ message: "Error creating medicine", error: error.message });
